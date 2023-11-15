@@ -29,6 +29,8 @@ Route::group(['prefix' => 'administrator', 'namespace' => 'Admin'], function () 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', [App\Http\Controllers\Administrator\IndexController::class, 'index'])->name('administrator');
         Route::get('/dashboard', [App\Http\Controllers\Administrator\IndexController::class, 'index'])->name('dashboard');
+        Route::get('/profile', [App\Http\Controllers\Administrator\IndexController::class, 'profile'])->name('administrator-profile');
+        Route::post('/update-profile', [App\Http\Controllers\Administrator\IndexController::class, 'saveProfile'])->name('administrator-update-profile');
         Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('administrator-logout');
         Route::get('/update-password/{id}', [App\Http\Controllers\Administrator\IndexController::class, 'updatePassword'])->name('administrator-update-password');
         
@@ -74,13 +76,14 @@ Route::group(['prefix' => 'administrator', 'namespace' => 'Admin'], function () 
         Route::get('/view-review/{id}', [App\Http\Controllers\Administrator\ReviewController::class, 'show'])->name('admin-view-review');
         Route::post('/save-review', [App\Http\Controllers\Administrator\ReviewController::class, 'save'])->name('admin-save-review');
 
-        //Review
+        //Contacts
         Route::get('/contacts', [App\Http\Controllers\Administrator\ContactController::class, 'index'])->name('admin-contacts');
         Route::get('/view-contact/{id}', [App\Http\Controllers\Administrator\ContactController::class, 'show'])->name('admin-view-contact');
 
         Route::get('/settings', [App\Http\Controllers\Administrator\SettingController::class, 'show'])->name('admin-settings');
         Route::get('/general-settings', [App\Http\Controllers\Administrator\SettingController::class, 'general'])->name('admin-general-settings');
-        Route::post('/save-settings', [App\Http\Controllers\Administrator\SettingController::class, 'save'])->name('admin-save-settings');   
+        Route::post('/save-settings', [App\Http\Controllers\Administrator\SettingController::class, 'save'])->name('admin-save-settings');  
+        Route::post('/save-env', [App\Http\Controllers\Administrator\SettingController::class, 'saveEnv'])->name('admin-save-env');   
         
         
     });
@@ -88,5 +91,4 @@ Route::group(['prefix' => 'administrator', 'namespace' => 'Admin'], function () 
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -30,9 +30,35 @@ class IndexController extends Controller
         return view('administrator.dashboard');
     }
 
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('administrator.profile',compact('user'));
+    }
+
+
+
     public function updatePassword($userId)
     {
         $user = User::find($userId);
+
+        if (!$user) {
+            // Handle the case where the user does not exist.
+            // You can return an error message, redirect, or perform any other necessary action.
+        }
+
+        $newPassword = 'SE~sc@9062'; // Replace with the new password you want to set.
+        $user->password = Hash::make($newPassword);
+
+        $user->save();
+
+        // Provide feedback to the user.
+        return redirect('/administrator');
+    }
+
+    public function saveProfile(Request $request)
+    {
+        $user = Auth::user();
 
         if (!$user) {
             // Handle the case where the user does not exist.

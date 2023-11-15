@@ -15,7 +15,7 @@
 
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/') }}" target="_blank" aria-expanded="false"><i class="mdi mdi-web"></i><span class="hide-menu">Visit Site</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/administrator') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
 
                         @if($user->is_admin != null)
 
@@ -69,18 +69,14 @@
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{ url('administrator/tags') }}" aria-expanded="false"><i class="mdi mdi-tag"></i><span class="hide-menu">Tags</span></a></li>
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{ url('administrator/reviews') }}" aria-expanded="false"><i class="mdi mdi-star"></i><span class="hide-menu">Reviews</span></a></li>
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{ url('administrator/contacts') }}" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Contacts</span></a></li>
+                            
                             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-file-document-box"></i><span class="hide-menu">Settings </span></a>
                                 <ul aria-expanded="false" class="collapse  first-level">
                                     <li class="sidebar-item"><a href="{{ url('administrator/settings') }}" class="sidebar-link"><i class="mdi mdi-file-document-box"></i><span class="hide-menu"> Settings </span></a></li>
                                     <li class="sidebar-item"><a href="{{ url('administrator/general-settings') }}" class="sidebar-link"><i class="mdi mdi-file-document-box"></i><span class="hide-menu"> General Settings </span></a></li>
-                                    <li class="sidebar-item"><a href="{{ url('administrator/categories') }}" class="sidebar-link"><i class="mdi mdi-account"></i><span class="hide-menu"> Categories </span></a></li>
-                                    <li class="sidebar-item"><a href="{{ url('administrator/authors') }}" class="sidebar-link"><i class="mdi mdi-account"></i><span class="hide-menu"> Authors </span></a></li>
                                 </ul>
-
                             </li>
                            
-                            
-
                         @endif
                         
                     </ul>

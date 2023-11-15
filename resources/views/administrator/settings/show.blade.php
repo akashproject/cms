@@ -53,15 +53,47 @@
 											</div>
 										</div>
 
-										
+										<div class="form-group row">
+											<label for="date_format" class="col-sm-3 text-right control-label col-form-label">
+												Date Format</label>
+											<div class="col-sm-9">
+												<select name="date_format" id="date_format" class="select2 form-control custom-select" style="width: 100%; height:36px;">	
+													<option value="Y-m-d"> {{ date("Y-m-d") }} </option>
+													<option value="F d, Y" {{ (isset($envSettings["date_format"]) && ($envSettings["date_format"] == 'F d, Y'))?"selected":"" }}> {{ date("F d, Y") }} </option>
+													<option value="d/m/Y" {{ (isset($envSettings["date_format"]) && ($envSettings["date_format"] == 'd/m/y'))?"selected":"" }}> {{ date("d/m/Y") }}</option>
+													<option value="M d, Y" {{ (isset($envSettings["date_format"]) && ($envSettings["date_format"] == 'M d, Y'))?"selected":"" }}> {{ date("M d, Y") }} </option>
+												<select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="time_format" class="col-sm-3 text-right control-label col-form-label">
+												Time Format</label>
+											<div class="col-sm-9">
+												<select name="time_format" id="time_format" class="select2 form-control custom-select" style="width: 100%; height:36px;">	
+													<option value="h:i:s" > {{ date("h:i:s") }} </option>
+													<option value="g:i a" {{ (isset($envSettings["time_format"]) && ($envSettings["time_format"] == 'g:i a'))?"selected":"" }}> {{ date("g:i a") }} </option>
+													<option value="g:i A" {{ (isset($envSettings["time_format"]) && ($envSettings["time_format"] == 'g:i A'))?"selected":"" }}> {{ date("g:i A") }}</option>
+													<option value="H:i" {{ (isset($envSettings["time_format"]) && ($envSettings["time_format"] == 'H:i'))?"selected":"" }}> {{ date("H:i") }}</option>
+												<select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="pagination" class="col-sm-3 text-right control-label col-form-label">
+												Pagination Count</label>
+												<div class="col-sm-9">
+													<input type="text" class="form-control" name="pagination" id="pagination" value="{{ (isset($envSettings['pagination']))?$envSettings['pagination']:'10' }}" >    
+												</div>
+										</div>
 
 										<div class="form-group row">
 											<label for="enable_otp" class="col-md-3 text-right control-label col-form-label">Enable OTP</label>
 											<div class="col-sm-9">
 												<select name="enable_otp" id="enable_otp" class="select2 form-control custom-select" style="width: 100%; height:36px;">	
 													<option value="">Enable Otp</option>
-													<option value="1" {{ ($settings["enable_otp"] == "1")?"selected":"" }}> Yes</option>
-													<option value="0" {{ ($settings["enable_otp"] == "0")?"selected":"" }}> No </option>
+													<option value="1" {{ (isset($envSettings["enable_otp"]) && ($envSettings["enable_otp"] == '1'))?"selected":"" }}> Yes</option>
+													<option value="0" {{ (isset($envSettings["enable_otp"]) && ($envSettings["enable_otp"] == '0'))?"selected":"" }}> No </option>
 												<select>
 											</div>
 										</div>
@@ -69,7 +101,7 @@
 										<div class="form-group row">
 											<label for="footer_about" class="col-sm-3 text-right control-label col-form-label">Footer About</label>
 											<div class="col-sm-9">
-												<textarea class="form-control" name="footer_about" id="footer_about" placeholder="Enter footer about Here" >{{ $settings['footer_about'] }}</textarea>
+												<textarea class="form-control" name="footer_about" id="footer_about" placeholder="Enter footer about Here" >{{ (isset($settings['footer_about']))?$settings['footer_about']:'10' }}</textarea>
 											</div>
 										</div>
 
